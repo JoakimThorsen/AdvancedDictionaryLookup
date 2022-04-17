@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+
+<script src="search.js"></script>
+<style>
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+body  {
+    padding-top: 70px;
+}
+
+.checkboxes-row {
+    margin: 5px;
+}
+input[type=number] {
+    max-width: 50px;
+}
+h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+</style>
+</head>
+<body onload="processURL();search();">
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+
+    <h1 class="text-center">Advanced Dictionary Search</h1>
+    <h2 class="text-center">For unknown characters, use an underscore (_).</h2>
+    <h2 class="text-center">For unknown but repeating characters, use numbers 1-9.</h2>
+    <h2 class="text-center">Escape these rules/other regex formatting using backslashes (\).</h2>
+
+    <form>
+        <div id="checkboxes" style="display:none">
+            <div class="text-center checkboxes-row">
+                <label class="radio-inline"><input type="radio" name="dict" id="wiktionary" value="wiktionary">Wiktionary 30k most common words</label>
+                <label class="radio-inline"><input type="radio" name="dict" id="wordle" value="wordle">Wordle wordlist</label>
+                <label class="radio-inline"><input type="radio" name="dict" id="full" value="full">Full dictionary</label>
+            </div>
+            <div class="text-center checkboxes-row">
+                <label class="checkbox-inline"><input type="checkbox" name="casesensitive" id="casesensitive">Case sensitive</label>
+                <label class="checkbox-inline"><input type="checkbox" name="uniqueunknowns" id="uniqueunknowns">Unique unknown chars</label>
+            </div>
+            <div class="text-center checkboxes-row">
+                <label class="checkbox-inline"><input type="checkbox" name="leadingchars" id="leadingchars">Allow leading chars</label>
+                <label class="checkbox-inline"><input type="checkbox" name="trailingchars" id="trailingchars">Allow trailing chars</label>
+                <label class="checkbox-inline"><input type="checkbox" name="showregex" id="showregex">Show regex</label>
+            </div>
+            <div class="text-center checkboxes-row">
+                <label class="checkbox-inline"><input type="number" name="minLen" id="minLen">Minimum word length (inclusive)</label>
+                <label class="checkbox-inline"><input type="number" name="maxLen" id="maxLen">Maximum word length (inclusive)</label>
+            </div>
+        </div>
+        <br>
+        <input type="checkbox" name="options" id="options" style="display:none">
+        <div class="input-group">
+            <input type="text" class="form-control" id="search" name="search" placeholder="Enter something..." value="" autofocus>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="toggleOptions();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+            </span>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <div id="regex"></div>
+    <div id="results">
+
+    </div>
+</div>
+<script type="text/javascript">
+    // // Case sensitivity option
+    // const caseSensitive = document.getElementById('case');
+    // caseSensitive.onclick = () => caseSensitive.name = caseSensitive.checked ? 'cs' : '';
+    
+    // // Dictionary selection option
+    // const fullDict = document.getElementById('fullDict');
+    // fullDict.onclick = () => fullDict.name = fullDict.checked ? 'fd' : '';
+    
+    // // Unique unknown chars option
+    // const unique = document.getElementById('unique');
+    // unique.onclick = () => unique.name = unique.checked ? 'uu' : '';
+
+    // // Beginning tail option
+    // const bt = document.getElementById('bt');
+    // bt.onclick = () => bt.name = bt.checked ? 'bt' : '';
+
+    // // End tail option
+    // const et = document.getElementById('et');
+    // et.onclick = () => et.name = et.checked ? 'et' : '';
+
+    // // Show regex option
+    // const sr = document.getElementById('sr');
+    // sr.onclick = () => sr.name = sr.checked ? 'sr' : '';
+
+    
+  </script>
