@@ -19,8 +19,14 @@ body  {
 .checkboxes-row {
     margin: 5px;
 }
-input[type=number] {
-    max-width: 50px;
+.shortnumber, .shorttext {
+    margin-right: 5px;
+}
+.shortnumber, .shorttext {
+    max-width: 80px;
+}
+.shortnumber {
+    max-width: 40px;
 }
 h2 {
     font-size: 18px;
@@ -32,7 +38,7 @@ h2 {
 
 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 
-    <h1 class="text-center">Advanced Dictionary Search</h1>
+    <h1 class="text-center">Advanced Dictionary Lookup</h1>
     <h2 class="text-center">For unknown characters, use an underscore (_).</h2>
     <h2 class="text-center">For unknown but repeating characters, use numbers 1-9.</h2>
     <h2 class="text-center">Escape these rules/other regex formatting using backslashes (\).</h2>
@@ -54,8 +60,13 @@ h2 {
                 <label class="checkbox-inline"><input type="checkbox" name="showregex" id="showregex">Show regex</label>
             </div>
             <div class="text-center checkboxes-row">
-                <label class="checkbox-inline"><input type="number" name="minLen" id="minLen">Minimum word length (inclusive)</label>
-                <label class="checkbox-inline"><input type="number" name="maxLen" id="maxLen">Maximum word length (inclusive)</label>
+                <label class="checkbox-inline"><input type="number" class="shortnumber" name="minLen" id="minLen">Minimum word length (inclusive)</label>
+                <label class="checkbox-inline"><input type="number" class="shortnumber" name="maxLen" id="maxLen">Maximum word length (inclusive)</label>
+            </div>
+            <div class="text-center checkboxes-row">
+                <label class="checkbox-inline"><input type="text" class="shorttext" name="excludedchars" id="excludedchars">Excluded chars</label>
+                <label class="checkbox-inline"><input type="text" class="shorttext" name="requiredchars" id="requiredchars">Required chars</label>
+                <!-- <label class="checkbox-inline"><input type="text" class="shorttext" name="exactchars" id="exactchars">Use exactly these chars</label> -->
             </div>
         </div>
         <br>
@@ -74,30 +85,3 @@ h2 {
 
     </div>
 </div>
-<script type="text/javascript">
-    // // Case sensitivity option
-    // const caseSensitive = document.getElementById('case');
-    // caseSensitive.onclick = () => caseSensitive.name = caseSensitive.checked ? 'cs' : '';
-    
-    // // Dictionary selection option
-    // const fullDict = document.getElementById('fullDict');
-    // fullDict.onclick = () => fullDict.name = fullDict.checked ? 'fd' : '';
-    
-    // // Unique unknown chars option
-    // const unique = document.getElementById('unique');
-    // unique.onclick = () => unique.name = unique.checked ? 'uu' : '';
-
-    // // Beginning tail option
-    // const bt = document.getElementById('bt');
-    // bt.onclick = () => bt.name = bt.checked ? 'bt' : '';
-
-    // // End tail option
-    // const et = document.getElementById('et');
-    // et.onclick = () => et.name = et.checked ? 'et' : '';
-
-    // // Show regex option
-    // const sr = document.getElementById('sr');
-    // sr.onclick = () => sr.name = sr.checked ? 'sr' : '';
-
-    
-  </script>

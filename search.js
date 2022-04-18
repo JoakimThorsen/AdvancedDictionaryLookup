@@ -82,6 +82,9 @@ function searchWithDict(dict) {
     // Filter for word length if specified and greater than 0
     if(stringParam("maxlen")) { result = result.filter(word => word.length <= parseInt(stringParam("maxlen")))}
     if(stringParam("minlen")) { result = result.filter(word => word.length >= parseInt(stringParam("minlen")))}
+    
+    if(stringParam("excludedchars")) { result = result.filter(word => stringParam("excludedchars").split('').every(letter => word.indexOf(letter) < 0 )) }
+    if(stringParam("requiredchars")) { result = result.filter(word => stringParam("requiredchars").split('').every(letter => word.indexOf(letter) >= 0 )) }
 
     result = result.map(word => `<h2>${word}</h2>`);
     
