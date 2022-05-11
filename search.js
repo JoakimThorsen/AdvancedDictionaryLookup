@@ -8,6 +8,9 @@ function search() {
         case "wordle": 
             fetchUrl = "wordle_words.txt";
             break;
+        case "wordle_answers": 
+            fetchUrl = "wordle_answers.txt";
+            break;
         case "full":
             fetchUrl = "words.txt"
             break;
@@ -15,8 +18,6 @@ function search() {
     // const dict = fetch(fetchUrl).then(res => res.text().split('\n'));
     fetch(fetchUrl)
         .then(res => res.text())
-        // .then(res => res.split('\n'))
-        // .then(res => res.text().split('\n'))
         .then(dict => searchWithDict(dict.split(/\r?\n/)));
 }
 
@@ -89,44 +90,4 @@ function searchWithDict(dict) {
     result = result.map(word => `<h2>${word}</h2>`);
     
     $('#results').html(result.join(''));
-}
-
-urlParams = new URLSearchParams(window.location.search);
-
-function checkboxParam(param) {
-    param = param.toLowerCase();
-    if($(`input[type=checkbox]#${param}`).length) {
-        return urlParams.get(param) !== null;
-    }
-    return false;
-}
-function stringParam(param) {
-    return urlParams.get(param);
-}
-
-function toggleOptions() {
-    var options = document.getElementById("options");
-    var checkboxes = document.getElementById("checkboxes");
-    
-    options.checked = !options.checked;
-    checkboxes.style.display = options.checked ? 'block' : 'none';
-}
-
-function processURL() {
-    $('input').each((_, option) => {
-        switch($(option).attr("type")) {
-            case "checkbox":
-                $(option).prop("checked", checkboxParam($(option).attr("id"))).change();
-                break;
-            case "radio":
-                $(option).prop("checked", stringParam($(option).attr("name")) == $(option).attr("id"));
-                break;
-            case "number":
-            case "text":
-                $(option).val(stringParam($(option).attr("id")));
-        }
-    });
-    if(checkboxParam("options")) {
-        $('#checkboxes')[0].style.display = "block";
-    }
 }
