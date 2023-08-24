@@ -14,6 +14,9 @@ function search() {
         case "full":
             fetchUrl = "words.txt"
             break;
+        case "norwegian":
+            fetchUrl = "ordliste_aspell.txt"
+            break;
     }
     // const dict = fetch(fetchUrl).then(res => res.text().split('\n'));
     fetch(fetchUrl)
