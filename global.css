@@ -1,0 +1,23 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+body  {
+    padding-top: 70px;
+}
+
+.checkboxes-row {
+    margin: 5px;
+}
+.shortnumber, .shorttext {
+    margin-right: 5px;
+}
+.shortnumber, .shorttext {
+    max-width: 80px;
+}
+.shortnumber {
+    max-width: 40px;
+}
+h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}

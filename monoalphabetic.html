@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Monoalphabetic Substitution Cipher Decoder</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+
+<script src="shared_functions.js"></script>
+<script src="monoalphabetic.js"></script>
+
+<style>
+  * {
+    font-family: 'Montserrat', sans-serif;
+  }
+  body  { padding-top: 70px; }
+  .checkboxes {
+      padding-top: 10px;
+  }
+</style>
+</head>
+<body onload="decode();">
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+
+    <h1 class="text-center">Monoalphabetic Substitution Cipher Decoder</h1>
+    <h4 class="text-center">Whoop de doo.</h4>
+    <form>
+        <input type="text" class="form-control" id="decrypt" name="decrypt" placeholder="Enter something to decrypt..." value="" autofocus>
+        <br>
+        <button type="submit" class="btn btn-primary">Decrypt</button>
+    </form>
+    <div id="results">
+
+    </div>
+</div>
